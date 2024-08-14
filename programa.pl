@@ -83,17 +83,17 @@ amigoDe(conejoDePascua, cavenaghi).
 puedeAlegrar(Personaje, Persona) :-
     quiere(Persona, _),     % la Persona tiene algun sueño
     tieneQuimicaCon(Personaje, Persona),
-    not(cadenaDeEnfermos(Personaje)).
+    algunBackupNoEnfermo(Personaje).
 
 estaEnfermo(campanita).
 estaEnfermo(reyesMagos).
 estaEnfermo(conejoDePascua).
 
-cadenaDeEnfermos(Personaje) :-
-    estaEnfermo(Personaje).
+algunBackupNoEnfermo(Personaje) :-
+    not(estaEnfermo(Personaje)).
 
-cadenaDeEnfermos(Personaje) :-
+algunBackupNoEnfermo(Personaje) :-
     amigoDe(Personaje, OtroPersonaje),
-    cadenaDeEnfermos(OtroPersonaje).
+    algunBackupNoEnfermo(OtroPersonaje).
 
 
